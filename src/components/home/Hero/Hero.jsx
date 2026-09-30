@@ -53,8 +53,8 @@ const Hero = () => {
                     </Link>
                     <Link to="/about" className="w-full sm:w-auto">
                         <Button 
-                            variant="outline" 
-                            className="w-full sm:w-auto border-2 border-[#d6c7dd] hover:border-primary hover:bg-[#f8f5fa] text-[#161616] px-8 py-4 rounded-[10px] font-bold text-[16px] transition-all inline-flex items-center justify-center h-auto"
+                            variant="custom" 
+                            className="w-full sm:w-auto border-2 border-[#d1fae5] hover:border-primary hover:bg-[#f0fdf4] text-[#161616] px-8 py-4 rounded-[10px] font-bold text-[16px] transition-all inline-flex items-center justify-center h-auto"
                         >
                             Learn More
                         </Button>

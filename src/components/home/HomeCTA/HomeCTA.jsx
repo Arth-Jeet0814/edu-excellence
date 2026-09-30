@@ -45,8 +45,8 @@ const HomeCTA = () => {
                     </Link>
                     <Link to="/about">
                         <Button 
-                            variant="outline" 
-                            className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-[10px] font-bold text-[16px] transition-all inline-flex items-center h-auto"
+                            variant="custom" 
+                            className="border-2 border-white/40 text-white hover:bg-white hover:text-[#064e3b] bg-transparent/20 backdrop-blur-xs px-8 py-4 rounded-[10px] font-bold text-[16px] transition-all inline-flex items-center h-auto"
                         >
                             Learn About Our Process
                         </Button>
