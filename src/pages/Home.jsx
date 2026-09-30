@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEO from '@/components/common/SEO';
-
 import Hero from '@/components/home/Hero/Hero';
-import Features from '@/components/home/Features/Features';
-import ServiceCards from '@/components/home/ServiceCards/ServiceCards';
-import Countries from '@/components/country/Countries/Countries';
 import WhyChooseUs from '@/components/home/WhyChooseUs/WhyChooseUs';
-import StudentReviews from '@/components/home/StudentReviews/StudentReviews';
-import FAQ from '@/components/home/FAQ/FAQ';
-import HomeContactSection from '@/components/home/HomeContactSection/HomeContactSection';
+import StatsSection from '@/components/home/StatsSection/StatsSection';
+import PopularDestinations from '@/components/home/PopularDestinations/PopularDestinations';
+import HomeCTA from '@/components/home/HomeCTA/HomeCTA';
 
 const Home = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
-            <SEO title="Home - Wow Global Studies" description="Innovating for a better future, one step at a time." />
+            <SEO 
+                title="Home | Education eXcellence Services" 
+                description="Guiding Students. Creating Futures. Changing Lives. Guiding ambitious students to top universities worldwide with personalised course selection, admissions coaching, and 98% visa success rate."
+                url="/"
+            />
+            {/* 1. Hero Section */}
             <Hero />
-            <Features />
-            <ServiceCards />
-            <Countries />
+
+            {/* 2. Why Choose Us (3 Cards) */}
             <WhyChooseUs />
-            <StudentReviews />
-            <HomeContactSection />
-            <FAQ />
+
+            {/* 3. Animated Stats */}
+            <StatsSection />
+
+            {/* 4. Popular Destinations (4 Cards) */}
+            <PopularDestinations />
+
+            {/* 5. Closing CTA Banner */}
+            <HomeCTA />
         </>
     );
 };

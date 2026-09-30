@@ -1,246 +1,91 @@
-import React, { useEffect, useRef, useState } from 'react';
-import footerBg from '@/assets/images/footer_img.webp';
-import { CheckCircle, Award, Globe, Users, TrendingUp, Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from 'react';
+import { Compass, GraduationCap, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Card from '@/components/common/Card';
 
-const featuresData = [
-    // Outer Arch (4 cards) - ring: 'outer'
-    { icon: <TrendingUp />, title: "Zero Rejections", angle: 145, ring: 'outer' },
-    { icon: <Award />, title: "Certified Experts", angle: 215, ring: 'outer' },
-    { icon: <Globe />, title: "Perfect Docs", angle: 325, ring: 'outer' },
-    { icon: <CheckCircle />, title: "Transparent Fees", angle: 35, ring: 'outer' },
-    
-    // Inner Arch (2 cards) - ring: 'inner'
-    { icon: <Users />, title: "Fast Processing", angle: 200, ring: 'inner' },
-    { icon: <Shield />, title: "Free Check", angle: 340, ring: 'inner' }
+const whyChooseCards = [
+    {
+        icon: <Compass size={32} className="text-white" />,
+        title: "Expert Counselling",
+        description: "Personalised, one-on-one advice tailored to each student's unique academic profile, passions, and long-term career aspirations."
+    },
+    {
+        icon: <GraduationCap size={32} className="text-white" />,
+        title: "University Partnerships",
+        description: "Direct ties and official partnerships with 189 partner universities across 25 leading global study destinations."
+    },
+    {
+        icon: <ShieldCheck size={32} className="text-white" />,
+        title: "Visa Assistance",
+        description: "Meticulous documentation, mock interview training, and compliance checks driving an exceptional 98% visa success rate."
+    }
 ];
 
 const WhyChooseUs = () => {
-    const sectionRef = useRef(null);
-    const imgRef = useRef(null);
-    const cardsRef = useRef([]);
-    const [scrollProgress, setScrollProgress] = useState(0);
-    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1024);
-        window.addEventListener('resize', handleResize, { passive: true });
-        
-        const handleScroll = () => {
-            if (!sectionRef.current) return;
-            const rect = sectionRef.current.getBoundingClientRect();
-            const windowH = window.innerHeight;
-            
-            if (rect.top < windowH && rect.bottom > 0) {
-                const progress = (windowH - rect.top) / (windowH + rect.height);
-                setScrollProgress(progress);
-
-                // Parallax on background image
-                if (imgRef.current) {
-                    const translateY = (progress - 0.5) * -60;
-                    imgRef.current.style.transform = `translateY(${translateY}px) scale(1.1)`;
-                }
-
-                // Parallax on cards, each card shifts slightly differently
-                cardsRef.current.forEach((card, i) => {
-                    if (!card) return;
-                    // Left cards move opposite to right cards
-                    const direction = featuresData[i].angle > 90 && featuresData[i].angle < 270 ? 1 : -1;
-                    const speed = 20 + (i % 3) * 15; 
-                    const cardShift = (progress - 0.5) * speed * direction;
-                    const rotate = (progress - 0.5) * (i % 2 === 0 ? 3 : -3) * direction;
-                    card.style.transform = `translate(-50%, -50%) translateY(${cardShift}px) rotate(${rotate}deg)`;
-                });
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    const outerRadius = isMobile ? 150 : 260;
-    const innerRadius = isMobile ? 85 : 155;
-    
-    const containerW = isMobile ? 320 : 760;
-    const containerH = isMobile ? 360 : 620;
-    
-    const centerX = containerW / 2;
-    const centerY = containerH / 2;
-
     return (
-        <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#faf8fb]">
+        <section className="py-[70px] lg:py-[100px] px-[20px] lg:px-[60px] bg-[#faf8fb] relative overflow-hidden">
             
-            {/* Background Image, parallax with NO fade/overlay */}
-            <img 
-                ref={imgRef}
-                src={footerBg} 
-                alt="" 
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform"
-                style={{ transform: 'translateY(0) scale(1.1)' }}
-            />
-            {/* Very little bit white fade overlay */}
-            <div className="absolute inset-0 bg-white/20 z-0 pointer-events-none"></div>
+            {/* Subtle background ambient blur */}
+            <div 
+                className="absolute pointer-events-none z-0"
+                style={{
+                    width: '600px',
+                    height: '600px',
+                    top: '10%',
+                    left: '-200px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(5,150,105,0.1) 0%, transparent 70%)',
+                }}
+            ></div>
 
-            {/* Content Layer */}
-            <div className="relative z-10 py-[40px] lg:py-[60px] px-[20px] lg:px-[60px] max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-[20px]">
-                
-                {/* Header (Left on Desktop) */}
-                <div className="w-full lg:w-[40%] text-left z-20">
-                    <h2 className="font-sans font-bold text-[26px] md:text-[42px] lg:text-[52px] leading-[1.1] text-[#161616] tracking-[-1px]">
-                        Why Choose Us<br />
-                        <span className="text-primary font-medium">your trusted education partner!</span>
+            <div className="max-w-[1200px] mx-auto relative z-10">
+                {/* Section Header */}
+                <div className="text-center max-w-[750px] mx-auto mb-[50px] lg:mb-[60px]">
+                    <span className="text-primary font-bold text-[13px] uppercase tracking-wider mb-2 block">
+                        Why Choose Us
+                    </span>
+                    <h2 className="font-sans font-bold text-[28px] md:text-[42px] lg:text-[48px] leading-[1.15] text-[#161616] tracking-[-1px] mb-4">
+                        Built Around Your <span className="text-primary">Global Ambitions</span>
                     </h2>
-                    <p className="text-[15px] md:text-[16px] text-[#555] mt-[16px] md:mt-[24px] leading-[1.6]">
-                        We don't just process applications; we craft success stories. Our team of certified experts ensures your journey is smooth, transparent, and built for approval.
+                    <p className="text-[16px] text-[#666] leading-relaxed">
+                        We blend deep admissions expertise with individual mentorship to ensure your journey from application to arrival is smooth, confident, and successful.
                     </p>
-                    <div className="mt-[24px] lg:hidden">
-                        <Button variant="custom" className="bg-primary hover:bg-primary-hover text-white transition-all duration-300 shadow-md hover:shadow-lg h-auto font-bold px-[24px] py-[12px] rounded-[8px] text-[14px]">
-                            Get Free Consulting
-                        </Button>
-                    </div>
                 </div>
 
-                {/* Mobile / Tablet Grid Layout */}
-                <div className="w-full lg:hidden grid grid-cols-1 md:grid-cols-2 gap-[16px] mt-[10px]">
-                    {featuresData.map((f, i) => (
-                        <Card key={i} className="flex items-center gap-[12px] p-[16px] rounded-[12px]">
-                            <div className="bg-primary flex items-center justify-center flex-none w-[36px] h-[36px] rounded-[8px]">
-                                {React.cloneElement(f.icon, { className: 'w-[18px] h-[18px] text-white' })}
+                {/* 3 Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {whyChooseCards.map((card, idx) => (
+                        <Card 
+                            key={idx}
+                            hoverEffect={true}
+                            className="bg-white/80 backdrop-blur-md border border-[#f0eaf2] p-8 lg:p-10 rounded-[20px] shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col items-start group"
+                        >
+                            {/* Icon Container */}
+                            <div className="w-16 h-16 rounded-[14px] bg-primary flex items-center justify-center mb-6 shadow-md shadow-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                                {card.icon}
                             </div>
-                            <span className="font-bold text-[#161616] text-[14px] leading-[1.3]">{f.title}</span>
+
+                            {/* Title */}
+                            <h3 className="font-sans font-bold text-[22px] text-[#161616] mb-3 group-hover:text-primary transition-colors">
+                                {card.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-[15px] leading-[1.65] text-[#5a5a5a] mb-6 flex-grow">
+                                {card.description}
+                            </p>
+
+                            {/* Learn More link */}
+                            <Link 
+                                to="/about" 
+                                className="inline-flex items-center gap-2 text-primary font-bold text-[14px] group-hover:translate-x-1 transition-transform"
+                            >
+                                Read more <ArrowRight size={15} />
+                            </Link>
                         </Card>
                     ))}
                 </div>
-
-                {/* Arch Layout (Right on Desktop) */}
-                <div className="hidden lg:flex w-[60%] relative justify-end">
-                    
-                    <style>
-                        {`
-                        .why-arch-height {
-                            height: calc(${containerH}px * min(1, calc((100vw - 40px) / ${containerW})));
-                        }
-                        .why-arch-scaler {
-                            transform: scale(min(1, calc((100vw - 40px) / ${containerW})));
-                            transform-origin: top center;
-                        }
-                        
-                        @media (min-width: 1024px) {
-                            .why-arch-height {
-                                height: calc(${containerH}px * min(1, calc((100vw * 0.60 - 80px) / ${containerW})));
-                            }
-                            .why-arch-scaler {
-                                transform: scale(min(1, calc((100vw * 0.60 - 80px) / ${containerW})));
-                                transform-origin: top right;
-                            }
-                        }
-                        @media (min-width: 1350px) {
-                            .why-arch-height {
-                                height: ${containerH}px;
-                            }
-                            .why-arch-scaler {
-                                transform: scale(1);
-                            }
-                        }
-                        `}
-                    </style>
-
-                    <div className="relative w-full why-arch-height flex justify-end">
-                        <div 
-                            className="relative why-arch-scaler flex-none"
-                            style={{ 
-                                width: `${containerW}px`, 
-                                height: `${containerH}px`
-                            }}
-                        >
-                            {/* Outer circle border */}
-                            <div 
-                                className="absolute rounded-full border-[1.5px] border-primary/20"
-                                style={{
-                                    width: `${outerRadius * 2}px`,
-                                    height: `${outerRadius * 2}px`,
-                                    top: `${centerY}px`,
-                                    left: `${centerX}px`,
-                                    transform: 'translate(-50%, -50%)'
-                                }}
-                            ></div>
-
-                            {/* Inner circle border */}
-                            <div 
-                                className="absolute rounded-full border-[1.5px] border-primary/30"
-                                style={{
-                                    width: `${innerRadius * 2}px`,
-                                    height: `${innerRadius * 2}px`,
-                                    top: `${centerY}px`,
-                                    left: `${centerX}px`,
-                                    transform: 'translate(-50%, -50%)'
-                                }}
-                            ></div>
-
-                            {/* Cards */}
-                            {featuresData.map((f, i) => {
-                                const radius = f.ring === 'outer' ? outerRadius : innerRadius;
-                                const angleRad = (f.angle * Math.PI) / 180;
-                                const x = centerX + radius * Math.cos(angleRad);
-                                const y = centerY + radius * Math.sin(angleRad);
-
-                                return (
-                                    <Card
-                                        key={i}
-                                        ref={el => cardsRef.current[i] = el}
-                                        hoverEffect={false}
-                                        className={`!absolute flex items-center will-change-transform hover:scale-[1.03] cursor-pointer z-10 group ${
-                                            isMobile 
-                                                ? "rounded-[10px] !p-[8px] !pr-[12px] gap-[8px] w-[150px]" 
-                                                : "rounded-[14px] !p-[14px] gap-[12px] w-[260px]"
-                                        }`}
-                                        style={{
-                                            left: `${x}px`,
-                                            top: `${y}px`,
-                                            transform: 'translate(-50%, -50%)'
-                                        }}
-                                    >
-                                        <div className={`bg-primary flex items-center justify-center flex-none transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110 ${
-                                            isMobile ? "w-[26px] h-[26px] rounded-[6px]" : "w-[36px] h-[36px] rounded-[8px]"
-                                        }`}>
-                                            {React.cloneElement(f.icon, { className: isMobile ? 'w-[14px] h-[14px] text-white' : 'w-[18px] h-[18px] text-white' })}
-                                        </div>
-                                        <span className={`font-bold text-[#161616] ${
-                                            isMobile ? "text-[10px] leading-[1.2]" : "text-[13px] leading-[1.35]"
-                                        }`}>{f.title}</span>
-                                    </Card>
-                                );
-                            })}
-
-                            {/* Central Button */}
-                            <div 
-                                className="absolute flex justify-center items-center"
-                                style={{
-                                    top: `${centerY + (isMobile ? 15 : 20)}px`,
-                                    left: `${centerX}px`,
-                                    transform: 'translate(-50%, -50%)'
-                                }}
-                            >
-                                <Button variant="custom" className={`bg-primary hover:bg-primary-hover text-white transition-all duration-300 shadow-md hover:shadow-lg h-auto font-bold ${
-                                    isMobile ? "px-[16px] py-[10px] rounded-[6px] text-[12px]" : "px-[32px] py-[14px] rounded-[8px] text-[15px]"
-                                }`}>
-                                    Get Free Consulting
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-            {/* Bottom Gradient Fade for Section Bridging */}
-            <div className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-[#f8f5fa] to-transparent z-10 pointer-events-none"></div>
         </section>
     );
 };

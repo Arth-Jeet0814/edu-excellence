@@ -5,18 +5,9 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './styles/App.css';
 import AppRoutes from './routes/AppRoutes';
-import EnquiryPopup from './components/common/EnquiryPopup';
-import FloatingCTA from './components/common/FloatingCTA';
-import api from './services/api';
 
 function App() {
-  // Wake up the backend server on initial load (useful for free tier hosting like Render/Heroku)
-  useEffect(() => {
-    api.get('/health').catch((err) => {
-      console.log('Server waking up...');
-    });
-  }, []);
-  // Initialize Lenis for smooth scroll (momentum scrolling)
+  // Initialize Lenis for smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -36,37 +27,17 @@ function App() {
     };
   }, []);
 
-    return (
-        <HelmetProvider>
-            <Helmet>
-                <script 
-                    type="application/ld+json" 
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "Wow Global Studies",
-                        "url": "https://www.wowglobalstudies.com",
-                        "logo": "https://www.wowglobalstudies.com/assets/images/logo.png",
-                        "contactPoint": {
-                            "@type": "ContactPoint",
-                            "telephone": "+91-9925944556",
-                            "contactType": "customer service",
-                            "email": "info@wowglobalstudies.com"
-                        },
-                        "sameAs": [
-                            "https://instagram.com",
-                            "https://linkedin.com"
-                        ]
-                    }) }} 
-                />
-            </Helmet>
-            <EnquiryPopup />
-            <FloatingCTA />
-            <Router>
-                <AppRoutes />
-            </Router>
-        </HelmetProvider>
-    );
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>Education eXcellence Services - Guiding Students. Creating Futures. Changing Lives.</title>
+        <meta name="description" content="Education eXcellence Services: Personalised study abroad guidance helping ambitious students gain admission to top universities across the USA, UK, Canada, Australia, Germany, and New Zealand." />
+      </Helmet>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </HelmetProvider>
+  );
 }
 
 export default App;

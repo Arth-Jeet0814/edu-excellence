@@ -1,12 +1,16 @@
 :root {
-  /* Colors */
-  --color-primary: #9333ea;
-  --color-primary-hover: #7e22ce;
+  /* Colors - Modern Emerald Green & Mint */
+  --color-primary: #059669;
+  --color-primary-hover: #047857;
+  --color-accent-mint: #10b981;
+  --color-accent-light: #34d399;
+  --color-bg-mint-subtle: #f0fdf4;
+  --color-border-mint: #d1fae5;
   
-  --color-text-main: #333333;
-  --color-text-muted: #555555;
-  --color-text-light: #666666;
-  --color-text-subtle: #5a5a5a;
+  --color-text-main: #1f2937;
+  --color-text-muted: #4b5563;
+  --color-text-light: #6b7280;
+  --color-text-subtle: #4b5563;
   
   --color-bg-card: rgba(255, 255, 255, 0.05);
   --color-bg-card-transparent: rgba(255, 255, 255, 0.4);
@@ -35,8 +39,8 @@
 
   /* Effects */
   --shadow-card-idle: 0 4px 14px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 10px 28px rgba(88, 51, 94, 0.18);
-  --shadow-icon: 0 6px 10px rgba(88, 51, 94, 0.25);
+  --shadow-card-hover: 0 10px 28px rgba(5, 150, 105, 0.18);
+  --shadow-icon: 0 6px 10px rgba(5, 150, 105, 0.25);
   
   --blur-card: blur(8px);
   --blur-card-heavy: blur(12px);

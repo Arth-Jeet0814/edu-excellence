@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Globe, ExternalLink } from 'lucide-react';
 import './Footer.css';
-import logoImg from '@/assets/images/logo.png';
+import logoIcon from '@/assets/images/logo-icon.png';
 
 const Footer = () => {
-
   return (
     <footer className="footer-gray relative overflow-hidden">
       
@@ -18,96 +17,126 @@ const Footer = () => {
               top: '-600px',
               right: '-400px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(147,51,234,0.15) 0%, rgba(147,51,234,0.08) 40%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(5,150,105,0.22) 0%, rgba(5,150,105,0.08) 40%, transparent 70%)',
           }}
       ></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-[1300px] mx-auto">
+        {/* Top Contact Bar */}
         <div className="footer-contact-row-gray">
           <div className="footer-contact-item-gray">
             <Mail size={18} />
-            <a href="mailto:Brd.wowemeralds@gmail.com">Brd.wowemeralds@gmail.com</a>
+            <a href="mailto:support@edu-xservices.com">support@edu-xservices.com</a>
           </div>
           <div className="footer-contact-item-gray">
             <Phone size={18} />
-            <a href="tel:+919925944556">+91 9925944556</a>
+            <a href="tel:+221338483812">+221 33 848 38 12</a>
           </div>
-          <div className="social-icons-gray">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+          <div className="footer-contact-item-gray">
+            <Globe size={18} />
+            <a href="http://www.edu-xservices.com" target="_blank" rel="noopener noreferrer">www.edu-xservices.com</a>
+          </div>
+          <div className="footer-contact-item-gray">
+            <Clock size={18} />
+            <span>Mon - Sat: 10:00 AM - 6:00 PM</span>
           </div>
         </div>
 
-        <div className="footer-main-gray">
-          <div className="footer-column-gray">
-            <div className="footer-logo-gray">
-              <img src={logoImg} alt="Wow Global Studies Logo" style={{ filter: 'brightness(0) invert(1)' }} />
-              <p>"Innovating for a better future, one step at a time."</p>
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-6 text-left">
+          {/* Col 1: Brand & Tagline */}
+          <div className="flex flex-col items-start">
+            <div className="flex items-center gap-3 mb-3">
+              <img src={logoIcon} alt="Education eXcellence Services Logo" className="h-9 w-auto object-contain bg-white/10 p-1 rounded-lg" />
+              <div className="flex flex-col">
+                <span className="font-extrabold text-[16px] text-white tracking-tight leading-tight">
+                  Education eXcellence
+                </span>
+                <span className="text-[10px] text-[#f4d160] font-bold uppercase tracking-widest">
+                  Services
+                </span>
+              </div>
             </div>
-            <div className="footer-map-gray">
+            <p className="text-[#a0a0a0] text-[13.5px] leading-relaxed mb-3">
+              Guiding Students. Creating Futures. Changing Lives. Empowering African and international students to access premier global university education.
+            </p>
+            <div className="flex items-start gap-2 text-[#999] text-[13px]">
+              <MapPin size={16} className="text-primary shrink-0 mt-0.5" />
+              <span>Av Malick Sy, Dakar Plateau, Dakar Senegal</span>
+            </div>
+          </div>
+
+          {/* Col 2: Navigation Links */}
+          <div>
+            <h3 className="text-white text-[16px] font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2.5 p-0 m-0 list-none">
+              <li>
+                <Link to="/" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/study-destinations" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
+                  Study Destinations
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Key Facts */}
+          <div>
+            <h3 className="text-white text-[16px] font-bold mb-4">Why Choose Us</h3>
+            <ul className="space-y-2.5 p-0 m-0 list-none text-[#999] text-[14px]">
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <span>189 Partner Universities</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <span>25 Global Destinations</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <span>98% Visa Success Rate</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <span>100% Free Initial Assessment</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Map Location Embed */}
+          <div>
+            <h3 className="text-white text-[16px] font-bold mb-4">Our Office in Dakar</h3>
+            <div className="rounded-xl overflow-hidden border border-white/10 h-[140px] bg-[#1a1a1a]">
               <iframe
-                title="Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208.82783816335106!2d73.19645892986853!3d22.270550178663257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc597727fcb75%3A0xcf89972d49813e50!2sWow%20Global%20Studies......%20Best%20Study%20Abroad%20Consultant!5e1!3m2!1sen!2sin!4v1744331936681!5m2!1sen!2sin"
-                loading="lazy"
+                title="Education eXcellence Services Office Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15437.362142278918!2d-17.447576!3d14.678121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1724a7378d3eb%3A0x6b4f7a75069279ea!2sAvenue%20Malick%20Sy%2C%20Dakar%2C%20Senegal!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
                 allowFullScreen=""
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
-
-          <div className="footer-column-gray">
-            <h3>Company</h3>
-            <ul>
-              <li><Link to="/about-us">About Us</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-              <li><Link to="/blogs">Blogs</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column-gray">
-            <h3>Services</h3>
-            <ul>
-              <li><Link to="/services/free-counselling">Free Counselling</Link></li>
-              <li><Link to="/services/application-process">Application Process</Link></li>
-              <li><Link to="/services/financial-aid">Financial Aid</Link></li>
-              <li><Link to="/services/visa-assessment">Visa Assessment</Link></li>
-              <li><Link to="/services/interview-preparation">Interview Preparation</Link></li>
-              <li><Link to="/services/air-ticket">Air Ticket</Link></li>
-              <li><Link to="/services/post-visa-services">Post Visa Services</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column-gray">
-            <h3>Coaching</h3>
-            <ul>
-              <li><Link to="/coaching/ielts">IELTS Academic / General</Link></li>
-              <li><Link to="/coaching/gre">GRE</Link></li>
-              <li><Link to="/coaching/pte">PTE</Link></li>
-              <li><Link to="/coaching/duolingo">Duolingo English Test</Link></li>
-              <li><Link to="/coaching/sat">SAT</Link></li>
-              <li><Link to="/coaching/toefl-ibt">TOEFL - IBT</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column-gray">
-            <h3>Countries</h3>
-            <ul>
-              <li><Link to="/study-in/usa">USA</Link></li>
-              <li><Link to="/study-in/canada">Canada</Link></li>
-              <li><Link to="/study-in/uk">UK</Link></li>
-              <li><Link to="/study-in/australia">Australia</Link></li>
-              <li><Link to="/study-in/new-zealand">New Zealand</Link></li>
-              <li><Link to="/study-in/germany">Germany</Link></li>
-            </ul>
-          </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="footer-bottom-gray">
-          <p>© 2025 Wow Global Studies. All Rights Reserved.</p>
+          <p>© 2026 Education eXcellence Services (Edu-X). All Rights Reserved. Guiding Students. Creating Futures. Changing Lives.</p>
         </div>
       </div>
     </footer>

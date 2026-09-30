@@ -11,7 +11,7 @@
 
 .contact-container h1 {
   font-size: 2.5rem;
-  color: #9333ea;
+  color: #059669;
   margin-bottom: 1rem;
 }
 
@@ -26,10 +26,10 @@
   background: #fff;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(88, 51, 94, 0.08);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.08);
   text-align: left;
   margin-bottom: 2rem;
-  border-left: 5px solid #9333ea;
+  border-left: 5px solid #059669;
 }
 
 .contact-form {
@@ -59,11 +59,11 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #9333ea;
+  border-color: #059669;
 }
 
 .submit-button {
-  background-color: #9333ea;
+  background-color: #059669;
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -75,12 +75,12 @@
 }
 
 .submit-button:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-hover);
 }
 
 .contact-info-card h2 {
   font-size: 1.5rem;
-  color: #9333ea;
+  color: #059669;
   margin-bottom: 1rem;
 }
 
@@ -91,6 +91,6 @@
 }
 
 .contact-info-card a {
-  color: #9333ea;
+  color: #059669;
   text-decoration: underline;
 }
