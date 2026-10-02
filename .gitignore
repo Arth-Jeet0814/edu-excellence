@@ -18,9 +18,7 @@ dist-ssr
 build
 *.local
 
-# Backend & Scratch Directories
-backend/
-backend
+# Temporary scratch directories
 scratch/
 scratch
 
