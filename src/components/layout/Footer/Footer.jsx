@@ -86,6 +86,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/course-finder" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
+                  Course Finder
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-[#999] hover:text-primary transition-colors text-[14px] no-underline">
                   Contact
                 </Link>

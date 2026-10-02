@@ -16,6 +16,7 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Study Destinations', path: '/study-destinations' },
+    { name: 'Course Finder', path: '/course-finder' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -82,7 +83,7 @@ const Header = () => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center">
-            <ul className="flex items-center gap-[36px] list-none m-0 p-0">
+            <ul className="flex items-center gap-[22px] lg:gap-[32px] list-none m-0 p-0">
               {navLinks.map((item) => {
                 const isActive = location.pathname === item.path || (item.path === '/about' && location.pathname === '/about-us');
                 return (

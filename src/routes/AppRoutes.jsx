@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer/Footer';
 const Home = lazy(() => import('@/pages/Home'));
 const AboutUs = lazy(() => import('@/pages/AboutUs'));
 const StudyDestinations = lazy(() => import('@/pages/StudyDestinations'));
+const CourseFinder = lazy(() => import('@/pages/CourseFinder'));
 const Contact = lazy(() => import('@/pages/Contact'));
 
 const PublicLayout = ({ children }) => (
@@ -25,11 +26,13 @@ const AppRoutes = () => {
     return (
         <Suspense fallback={<div className="flex h-[60vh] w-full items-center justify-center text-primary font-bold">Loading...</div>}>
             <Routes>
-                {/* 4 Core Pages Only */}
+                {/* Core Navigation Pages */}
                 <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
                 <Route path="/about" element={<PublicLayout><AboutUs /></PublicLayout>} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
                 <Route path="/study-destinations" element={<PublicLayout><StudyDestinations /></PublicLayout>} />
+                <Route path="/course-finder" element={<PublicLayout><CourseFinder /></PublicLayout>} />
+                <Route path="/courses" element={<Navigate to="/course-finder" replace />} />
                 <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
                 
                 {/* Catch-all redirect to Home */}

@@ -339,7 +339,7 @@ const Contact = () => {
                         </div>
 
                         {/* Map & Office Timings (5 Cols) */}
-                        <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                        <div className="lg:col-span-5 flex flex-col gap-6">
                             {/* Office Hours Card */}
                             <Card className="p-7 border border-[#f0eaf2] bg-white rounded-[22px] shadow-sm">
                                 <div className="flex items-center gap-3 mb-4">
@@ -366,20 +366,28 @@ const Contact = () => {
                             </Card>
 
                             {/* Map Embed */}
-                            <div className="rounded-[22px] overflow-hidden border border-[#f0eaf2] shadow-sm bg-white p-4 flex-grow flex flex-col justify-between">
-                                <div className="flex items-center justify-between mb-3">
-                                    <div className="flex items-center gap-2">
-                                        <MapPin size={18} className="text-primary" />
-                                        <span className="font-bold text-[15px] text-[#161616]">Dakar Office Location</span>
+                            <div className="rounded-[22px] overflow-hidden border border-[#f0eaf2] shadow-sm bg-white p-6 flex-1 flex flex-col">
+                                <div className="flex items-center justify-between mb-4">
+                                    <div className="flex items-center gap-2.5">
+                                        <div className="w-8 h-8 rounded-lg bg-[#f8f5fa] text-primary flex items-center justify-center">
+                                            <MapPin size={18} />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-sans font-bold text-[16px] text-[#161616]">Dakar Office Location</h3>
+                                            <p className="text-[12px] text-[#777]">Avenue Malick Sy, Dakar, Senegal</p>
+                                        </div>
                                     </div>
-                                    <span className="text-[12px] text-primary font-semibold">Senegal</span>
+                                    <span className="text-[11px] font-bold bg-[#f3edf7] text-primary px-3 py-1 rounded-full uppercase tracking-wider">
+                                        Senegal HQ
+                                    </span>
                                 </div>
-                                <div className="rounded-xl overflow-hidden border border-[#e8dced] bg-[#faf8fb] h-[260px] relative">
+                                <div className="flex-1 w-full min-h-[300px] rounded-xl overflow-hidden border border-[#e8dced] bg-[#faf8fb] relative">
                                     <iframe
                                         title="Education eXcellence Services Dakar Office"
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15437.362142278918!2d-17.447576!3d14.678121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1724a7378d3eb%3A0x6b4f7a75069279ea!2sAvenue%20Malick%20Sy%2C%20Dakar%2C%20Senegal!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
                                         width="100%"
                                         height="100%"
+                                        className="w-full h-full min-h-[300px] absolute inset-0"
                                         style={{ border: 0 }}
                                         allowFullScreen=""
                                         loading="lazy"
