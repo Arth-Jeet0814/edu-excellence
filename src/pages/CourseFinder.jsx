@@ -247,7 +247,7 @@ const CourseFinder = () => {
         <div className="relative max-w-[1300px] mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-emerald-300 text-xs font-bold tracking-wide uppercase mb-4">
             <Sparkles size={14} />
-            <span>Live University Database • 2026 Intake</span>
+            <span>Live University Data • 2026 Intake</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
             Find Your <span className="text-primary bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 text-transparent">Dream Course</span>
@@ -473,7 +473,7 @@ const CourseFinder = () => {
               <p className="text-slate-600 text-sm font-medium">
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2 text-slate-500">
-                    <Loader2 size={15} className="animate-spin text-primary" /> Loading programs from database...
+                    <Loader2 size={15} className="animate-spin text-primary" /> Loading programs from server...
                   </span>
                 ) : (
                   <>
@@ -481,7 +481,7 @@ const CourseFinder = () => {
                     <span className="font-bold text-slate-900">
                       {totalRows === 0 ? 0 : `${(currentPage - 1) * itemsPerPage + 1} - ${Math.min(currentPage * itemsPerPage, totalRows)}`}
                     </span>{' '}
-                    of <span className="font-bold text-primary">{totalRows}</span> courses in database
+                    of <span className="font-bold text-primary">{totalRows}</span> courses
                   </>
                 )}
               </p>
@@ -549,7 +549,7 @@ const CourseFinder = () => {
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2">No Courses Found</h3>
               <p className="text-slate-500 text-sm mb-6 leading-relaxed">
-                No courses in the database matched your selected filters. Try broadening your criteria or reset filters.
+                No courses matched your selected filters. Try broadening your criteria or reset filters.
               </p>
               <button
                 onClick={handleClearFilters}
